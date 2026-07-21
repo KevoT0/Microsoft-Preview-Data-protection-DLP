@@ -53,7 +53,7 @@ Purview answers it by governing **the data itself and the behaviour around it**.
  
 Created a custom label, `Trade Secret - Internal Only`, positioned at priority 12 (above Microsoft's built-in `Highly Confidential` at 9).
  
-![Sensitivity label review — access control, watermark and footer configured](screenshots/01-sensitivity-label.png)
+![Sensitivity label review — access control, watermark and footer configured](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/1.png)
  
 **Configuration and reasoning:**
  
@@ -68,7 +68,7 @@ Created a custom label, `Trade Secret - Internal Only`, positioned at priority 1
  
 A created label does nothing until published via a label policy. This create-vs-publish distinction is the most common point of confusion in Purview.
  
-![Label policy review — scoped publication with justification requirement enabled](screenshots/02-label-policy.png)
+![Label policy review — scoped publication with justification requirement enabled](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/2.png)
  
 **Key settings:**
  
@@ -79,7 +79,7 @@ A created label does nothing until published via a label policy. This create-vs-
  
 The label answers *"what is this?"* DLP answers *"where is it allowed to go?"*
  
-![DLP policy creation review — custom policy, Exchange scope, simulation mode](screenshots/03-dlp-create.png)
+![DLP policy creation review — custom policy, Exchange scope, simulation mode](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/3.png)
  
 **Policy: `Trade Secret DLP - Block External Sharing`**
  
@@ -89,7 +89,7 @@ The label answers *"what is this?"* DLP answers *"where is it allowed to go?"*
 - **Declined auto-promotion after 15 days.** The wizard offers to switch the policy to enforcement automatically if untouched for 15 days. Left off — **enforcement should follow review of simulation results, not elapse by default.**
 **The rule:**
  
-![DLP rule conditions and actions — sensitive info type, external sharing, sensitivity label](screenshots/06-dlp-rule.png)
+![DLP rule conditions and actions — sensitive info type, external sharing, sensitivity label](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/6.png)
  
 ```
 Conditions:
@@ -112,7 +112,7 @@ Notes on the configuration:
 - **Known limitation:** the three conditions are joined by **AND**, narrowing the rule to content matching *all* classifiers simultaneously. In production these would be OR'd, or split into separate rules, so either signal fires independently.
 ### 3.4 Retention label — governance over time
  
-![Retention label review — 7 years, disposition review, named reviewer stage](screenshots/07-retention-label.png)
+![Retention label review — 7 years, disposition review, named reviewer stage](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/7.png)
  
 **Label: `Trade Secret - 7 Year Retention`**
  
@@ -140,7 +140,7 @@ Documented honestly, because the friction is the realistic part.
  
 Attempting to verify the published label as `testuser1` in Office on the web returned an access denial.
  
-![Conditional Access block — compliant device required](screenshots/04-ca-block.png)
+![Conditional Access block — compliant device required](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/4.png)
  
 The Conditional Access policy built in **Project 2** requires a compliant, Intune-enrolled device. Testing from a non-enrolled personal machine was denied in Chrome (hard block), then in Edge after switching browser profile and signing in app-only.
  
@@ -154,7 +154,7 @@ On the day of creation, `Trade Secret - Internal Only` did not appear in the DLP
  
 The label appeared and was successfully added as a condition the following day. **Dependency to be aware of: DLP cannot reference a sensitivity label until that label has synced into the DLP service, which is not immediate.**
  
-![DLP policy edit — stage renamed to "Advanced DLP rules"](screenshots/05-dlp-edit.png)
+![DLP policy edit — stage renamed to "Advanced DLP rules"](https://github.com/KevoT0/Microsoft-Preview-Data-protection-DLP/blob/main/5.png)
  
 ### 4.3 Portal navigation drift
  
@@ -229,6 +229,3 @@ All Purview controls built in this lab are policy objects with no ingestion cost
 *Note: the Azure VM from Project 3 (`intune-test-vm`) remains deallocated and was not required for any part of this project.*
  
 ---
- 
-*Lab conducted on a Microsoft 365 E5 trial tenant. No production data involved. All pay-as-you-go Purview capabilities deliberately avoided; total cost £0.*
- 
